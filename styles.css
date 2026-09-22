@@ -1,0 +1,266 @@
+/* ============================================================
+   TOKENS
+   Palette shifted to a foundry / hot-metal register — the colors
+   of a welding shop or machining floor, not a generic "warm" UI.
+   Variable names are kept from the original build; only the hex
+   values changed, so every var(--x) reference across the site
+   (including inline SVG strokes) picks this up automatically.
+   ============================================================ */
+:root{
+  --navy-deep:   #170D08;   /* page background — scorched charcoal   */
+  --navy-line:   #6B3A22;   /* grid rules, hairlines, borders        */
+  --navy-panel:  #241309;   /* sheet / card background               */
+  --ink-line:    #F2A93B;   /* schematic line-work, subheads (amber) */
+  --ink-bright:  #FFF3E2;   /* primary text, warm paper white        */
+  --ink-muted:   #A6674A;   /* secondary text                        */
+  --amber:       #FF5A36;   /* annotation / accent — flame red-orange*/
+
+  --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background: var(--navy-deep);
+  color: var(--ink-bright);
+  font-family: var(--sans);
+  line-height: 1.55;
+  position:relative;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background:
+    linear-gradient(rgba(242,169,59,.045) 1px, transparent 1px) 0 0 / 100% 32px,
+    linear-gradient(90deg, rgba(242,169,59,.045) 1px, transparent 1px) 0 0 / 32px 100%;
+  background-color: var(--navy-deep);
+  z-index:-1;
+}
+
+a{ color:var(--amber); text-decoration:none; }
+a:hover{ text-decoration: underline; text-underline-offset:3px; }
+a:focus-visible, button:focus-visible{ outline:2px solid var(--amber); outline-offset:3px; }
+
+.wrap{ max-width: 920px; margin:0 auto; padding: 0 28px; position:relative; z-index:1; }
+
+/* corner crosshairs — CAD viewport marker, used once per sheet */
+.crosshair{ position:relative; }
+.crosshair::before, .crosshair::after{
+  content:""; position:absolute; width:14px; height:14px;
+  border-color: var(--ink-line); opacity:.55;
+}
+.crosshair::before{ top:-1px; left:-1px; border-top:1px solid; border-left:1px solid; }
+.crosshair::after{ bottom:-1px; right:-1px; border-bottom:1px solid; border-right:1px solid; }
+
+/* ============================================================
+   BACKGROUND SCHEMATIC ARTWORK
+   Large line-art robots (arm / humanoid / rover) bled toward the
+   section edges so they read clearly without sitting under text.
+   ============================================================ */
+section{ position:relative; }
+.bg-graphic{
+  position:absolute; top:-10px; width:440px; max-width:46vw;
+  opacity:.22; pointer-events:none; z-index:0;
+}
+.bg-graphic.right{ right:-70px; }
+.bg-graphic.left{ left:-70px; }
+.bg-graphic svg{ width:100%; height:auto; display:block; }
+@media (max-width:900px){ .bg-graphic{ opacity:.10; width:300px; } }
+@media (max-width:640px){ .bg-graphic{ display:none; } }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+header.nav{
+  position: sticky; top:0; z-index: 20;
+  background: rgba(23,13,8,.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--navy-line);
+}
+.nav-inner{
+  max-width:920px; margin:0 auto; padding: 16px 28px;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+}
+.nav-mark{ font-family: var(--mono); font-size: .82rem; color: var(--ink-line); letter-spacing:.02em; }
+.nav-mark b{ color: var(--ink-bright); font-weight:500; }
+.nav-links{ display:flex; gap: 22px; }
+.nav-links a{ font-size:.88rem; color: var(--ink-line); }
+.nav-links a:hover{ color: var(--amber); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{ padding: 72px 0 56px; overflow:hidden; }
+.hero-grid{
+  display:grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items:center;
+  position:relative; z-index:1;
+}
+@media (max-width:760px){ .hero-grid{ grid-template-columns:1fr; } }
+
+.hero h1{
+  font-size: clamp(2.1rem, 4.4vw, 3.1rem);
+  line-height:1.08; margin: 0 0 14px; font-weight:600; letter-spacing:-.01em;
+}
+.hero .role{ font-family:var(--mono); color:var(--amber); font-size:.92rem; margin-bottom:18px; }
+.hero p.summary{ color: var(--ink-line); max-width: 46ch; font-size:1.02rem; }
+
+.hero-actions{ display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; }
+.btn{
+  font-family: var(--mono); font-size:.85rem; padding:10px 18px;
+  border:1px solid var(--ink-line); color:var(--ink-bright); border-radius:2px;
+  transition: border-color .15s, color .15s; display:inline-block;
+}
+.btn:hover{ border-color:var(--amber); color:var(--amber); text-decoration:none; }
+.btn.primary{ background:var(--amber); color:var(--navy-deep); border-color:var(--amber); font-weight:500; }
+.btn.primary:hover{ background:transparent; color:var(--amber); }
+
+/* hero media panel: photo + small schematic sharing one sheet */
+.hero-media{
+  border:1px solid var(--navy-line); background: var(--navy-panel);
+  padding: 18px; display:flex; flex-direction:column; gap:16px;
+  position:relative; z-index:2;
+}
+.hero-media .schematic-mini svg{ width:100%; height:auto; display:block; }
+.frame-caption{ font-family:var(--mono); font-size:.7rem; color:var(--ink-muted); margin-top:8px; }
+
+/* ============================================================
+   PHOTO / MEDIA PLACEHOLDER FRAMES
+   Real <img> tags with a graceful fallback: if the file at `src`
+   doesn't exist yet, an onerror handler swaps in instructions
+   so the page still reads cleanly before assets are added.
+   ============================================================ */
+.photo-frame{
+  position:relative; border:1px solid var(--navy-line);
+  background: var(--navy-panel); aspect-ratio: 4/5; overflow:hidden;
+}
+.photo-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+.photo-frame.is-empty img{ display:none; }
+.photo-frame.is-empty{
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(242,169,59,.08) 0 1px, transparent 1px 10px);
+}
+.photo-frame.is-empty::after{
+  content: attr(data-placeholder);
+  font-family: var(--mono); font-size:.72rem; color: var(--ink-muted);
+  white-space: pre-line; padding: 12px; line-height:1.6;
+}
+.photo-frame.round{ border-radius:50%; aspect-ratio:1/1; }
+
+.media-frame{
+  position:relative; border:1px solid var(--navy-line);
+  background: var(--navy-panel); aspect-ratio: 16/9; overflow:hidden; margin: 22px 0;
+}
+.media-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+.media-frame.is-empty img{ display:none; }
+.media-frame.is-empty{
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(242,169,59,.08) 0 1px, transparent 1px 10px);
+}
+.media-frame.is-empty::after{
+  content: attr(data-placeholder);
+  font-family: var(--mono); font-size:.78rem; color: var(--ink-muted);
+  white-space: pre-line; line-height:1.7;
+}
+
+/* ============================================================
+   SECTION SCAFFOLDING
+   ============================================================ */
+section{ padding: 48px 0; border-top:1px solid var(--navy-line); }
+.sheet-id{ font-family: var(--mono); font-size:.78rem; color: var(--ink-muted); margin-bottom: 8px; position:relative; z-index:1; }
+h2{ font-size:1.5rem; font-weight:600; margin: 0 0 22px; position:relative; z-index:1; }
+
+/* ---- about ---- */
+.about-grid{ display:grid; grid-template-columns: 1fr 220px; gap: 40px; position:relative; z-index:1; }
+@media (max-width:700px){ .about-grid{ grid-template-columns:1fr; } }
+.about-grid p{ color: var(--ink-line); font-size:1.02rem; max-width:60ch; }
+.about-grid p + p{ margin-top:14px; }
+.specs{ font-family:var(--mono); font-size:.82rem; }
+.specs dt{ color: var(--ink-muted); margin-top:14px; }
+.specs dt:first-child{ margin-top:0; }
+.specs dd{ margin:2px 0 0; color: var(--ink-bright); }
+
+/* ---- stack ---- */
+.stack-group{ margin-bottom: 22px; }
+.stack-group h3{ font-family: var(--mono); font-weight:500; font-size:.8rem; color: var(--ink-muted); margin:0 0 10px; }
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{ font-family: var(--mono); font-size:.82rem; padding:6px 11px; border:1px solid var(--navy-line); border-radius:2px; color:var(--ink-bright); }
+
+/* ---- projects (index cards) ---- */
+.sheet{ border:1px solid var(--navy-line); background: var(--navy-panel); padding: 24px 26px; margin-bottom:18px; position:relative; z-index:1; }
+.sheet-head{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:8px; flex-wrap:wrap; }
+.sheet-head h3{ font-size:1.12rem; margin:0; font-weight:600; }
+.sheet-head h3 a{ color:var(--ink-bright); }
+.sheet-head h3 a:hover{ color:var(--amber); }
+.sheet-num{ font-family:var(--mono); font-size:.78rem; color:var(--amber); white-space:nowrap; }
+.sheet p{ color: var(--ink-line); margin: 8px 0 14px; max-width:64ch; }
+.sheet .chips{ margin-bottom: 14px; }
+.sheet-links{ display:flex; gap:18px; font-family:var(--mono); font-size:.82rem; }
+
+/* ---- project detail (subpages) ---- */
+.back-link{ font-family:var(--mono); font-size:.82rem; color:var(--ink-line); display:inline-block; margin-bottom:22px; }
+.back-link:hover{ color:var(--amber); }
+.case-head{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:6px; }
+.case-head h1{ font-size:1.9rem; margin:0; font-weight:600; }
+.case-summary{ color:var(--ink-line); max-width:66ch; font-size:1.02rem; margin-top:10px; }
+.case-links{ display:flex; gap:18px; font-family:var(--mono); font-size:.85rem; margin-top:18px; }
+.case-body p{ color:var(--ink-line); max-width:68ch; }
+.case-body h3{ font-size:1rem; margin: 30px 0 10px; }
+.case-nav{ display:flex; justify-content:space-between; padding: 28px 0 56px; font-family:var(--mono); font-size:.85rem; }
+
+/* ---- contact / title block ---- */
+.contact-grid{ display:grid; grid-template-columns: 180px 1fr; gap: 28px; align-items:start; position:relative; z-index:1; }
+@media (max-width:600px){ .contact-grid{ grid-template-columns: 1fr; } }
+.titleblock{ border:1px solid var(--navy-line); background: var(--navy-panel); display:grid; grid-template-columns: repeat(2, 1fr); }
+.tb-cell{ padding:18px 20px; border-left:1px solid var(--navy-line); border-top:1px solid var(--navy-line); }
+.tb-cell:nth-child(-n+2){ border-top:none; }
+.tb-cell:nth-child(odd){ border-left:none; }
+.tb-label{ font-family:var(--mono); font-size:.72rem; color:var(--ink-muted); margin-bottom:6px; }
+.tb-value{ font-size:.95rem; }
+.tb-value a{ color: var(--ink-bright); }
+.tb-value a:hover{ color: var(--amber); }
+
+/* ============================================================
+   CLOSING QUOTE — landing page finale
+   ============================================================ */
+.quote-section{ overflow:hidden; padding: 76px 0 0; }
+.sunburst{
+  position:absolute; left:50%; bottom:0; transform:translateX(-50%);
+  width:900px; max-width:160vw; opacity:.28; z-index:0; pointer-events:none;
+}
+.quote-inner{ position:relative; z-index:1; text-align:center; }
+.quote-text{
+  font-size: clamp(1.9rem, 5vw, 3rem); font-weight:600; letter-spacing:-.01em;
+  color: var(--amber); margin: 0 0 8px;
+}
+.quote-sub{ font-family:var(--mono); font-size:.82rem; color:var(--ink-muted); }
+
+.leap-wrap{
+  position:relative; width:230px; margin: 40px auto 0;
+}
+.leap-wrap .photo-frame{
+  transform: rotate(-4deg);
+  aspect-ratio: 3/4;
+}
+.leap-shadow{
+  width:150px; height:22px; margin:14px auto 0;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.55) 0%, transparent 72%);
+}
+.leap-marks{
+  position:absolute; top:20%; left:-26px; width:20px; height:60%;
+  display:flex; flex-direction:column; justify-content:space-between;
+  opacity:.6;
+}
+.leap-marks span{ display:block; width:100%; height:2px; background:var(--ink-line); transform:skewY(-25deg); }
+
+footer{ padding: 30px 0 60px; text-align:center; }
+footer p{ font-family:var(--mono); font-size:.76rem; color: var(--ink-muted); }
+
+::selection{ background: var(--amber); color: var(--navy-deep); }
+
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }

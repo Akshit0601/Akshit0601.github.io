@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akshit Shishodia — Robotics &amp; Perception</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><b>AKSHIT SHISHODIA</b> / ROBOTICS &amp; PERCEPTION</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#stack">Stack</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" style="border-top:none;">
+    <!-- background watermark: robotic arm -->
+    <div class="bg-graphic right" aria-hidden="true">
+      <svg viewBox="0 0 380 480" fill="none">
+        <rect x="140" y="430" width="100" height="14" stroke="var(--ink-line)" stroke-width="2"/>
+        <line x1="190" y1="430" x2="190" y2="380" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="190" cy="380" r="8" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="190" y1="380" x2="110" y2="300" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="110" cy="300" r="8" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="110" y1="300" x2="220" y2="220" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="220" cy="220" r="8" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="220" y1="220" x2="150" y2="120" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="150" cy="120" r="6" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="150" y1="120" x2="130" y2="90" stroke="var(--ink-line)" stroke-width="2"/>
+        <line x1="150" y1="120" x2="170" y2="95" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="150" cy="120" r="4" fill="var(--amber)"/>
+      </svg>
+    </div>
+
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="role">M.S. ELECTRICAL &amp; COMPUTER ENGINEERING — UC SAN DIEGO</div>
+          <h1>Akshit Shishodia</h1>
+          <p class="summary">
+            I build robots that perceive and control themselves —
+            <!-- EDIT: replace/extend this sentence with your own framing -->
+            from humanoid locomotion to autonomous navigation and reinforcement
+            learning, drawing on how humans think and learn to solve real
+            physical problems.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View projects</a>
+            <a class="btn" href="https://github.com/Akshit0601" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn" href="https://www.linkedin.com/in/akshit-shishodia-631aab23a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <!-- Photo + kinematic schematic, sharing one "reference sheet" panel -->
+        <div class="hero-media crosshair">
+          <div class="photo-frame" data-placeholder="ADD PHOTO&#10;assets/profile.jpg">
+            <img src="assets/profile.jpg" alt="Akshit Shishodia"
+                 onerror="this.parentElement.classList.add('is-empty')">
+          </div>
+          <div class="schematic-mini">
+            <svg viewBox="0 0 320 190" fill="none">
+              <rect x="120" y="150" width="80" height="10" stroke="var(--ink-line)" stroke-width="1.2"/>
+              <line x1="160" y1="150" x2="160" y2="118" stroke="var(--ink-line)" stroke-width="1.2"/>
+              <circle cx="160" cy="118" r="5" stroke="var(--amber)" stroke-width="1.4"/>
+              <line x1="160" y1="118" x2="100" y2="70" stroke="var(--ink-line)" stroke-width="1.4"/>
+              <circle cx="100" cy="70" r="5" stroke="var(--amber)" stroke-width="1.4"/>
+              <line x1="100" y1="70" x2="175" y2="30" stroke="var(--ink-line)" stroke-width="1.4"/>
+              <circle cx="175" cy="30" r="3.5" fill="var(--amber)"/>
+              <text x="180" y="18" font-family="IBM Plex Mono" font-size="9" fill="var(--amber)">τ = Kp·e + Kd·ė</text>
+            </svg>
+            <div class="frame-caption">FIG. 01 — 2-LINK MANIPULATOR, PD CONTROL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <!-- background watermark: humanoid -->
+    <div class="bg-graphic left" aria-hidden="true">
+      <svg viewBox="0 0 300 460" fill="none">
+        <circle cx="150" cy="60" r="30" stroke="var(--ink-line)" stroke-width="2"/>
+        <rect x="130" y="50" width="40" height="8" stroke="var(--ink-line)" stroke-width="1.6"/>
+        <line x1="150" y1="30" x2="150" y2="10" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="150" cy="8" r="3" fill="var(--amber)"/>
+        <line x1="150" y1="90" x2="150" y2="110" stroke="var(--ink-line)" stroke-width="2"/>
+        <rect x="110" y="110" width="80" height="120" rx="10" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="110" cy="125" r="7" stroke="var(--amber)" stroke-width="2"/>
+        <circle cx="190" cy="125" r="7" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="110" y1="125" x2="70" y2="180" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="70" cy="180" r="6" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="70" y1="180" x2="60" y2="240" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="60" cy="240" r="5" fill="var(--amber)"/>
+        <line x1="190" y1="125" x2="230" y2="180" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="230" cy="180" r="6" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="230" y1="180" x2="240" y2="240" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="240" cy="240" r="5" fill="var(--amber)"/>
+        <circle cx="150" cy="230" r="7" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="150" y1="230" x2="120" y2="320" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="120" cy="320" r="6" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="120" y1="320" x2="115" y2="410" stroke="var(--ink-line)" stroke-width="2"/>
+        <rect x="100" y="410" width="30" height="12" stroke="var(--ink-line)" stroke-width="1.6"/>
+        <line x1="150" y1="230" x2="180" y2="320" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="180" cy="320" r="6" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="180" y1="320" x2="185" y2="410" stroke="var(--ink-line)" stroke-width="2"/>
+        <rect x="170" y="410" width="30" height="12" stroke="var(--ink-line)" stroke-width="1.6"/>
+      </svg>
+    </div>
+
+    <div class="wrap">
+      <div class="sheet-id">SHEET — 01 / ABOUT</div>
+      <h2>About</h2>
+      <div class="about-grid">
+        <div>
+          <p>
+            <!-- EDIT: 2-4 sentences in your own voice. Draft below based on your GitHub bio. -->
+            I'm currently pursuing my Master's in Electrical and Computer
+            Engineering at UC San Diego, specializing in Intelligent Systems,
+            Robotics, and Control. My interest sits at the intersection of
+            robotics and perception — building algorithms that borrow their
+            intuition from how humans think and learn, then deploying them
+            against real, physical problems.
+          </p>
+          <p>
+            Recent work spans humanoid control, autonomous navigation testing
+            infrastructure, and reinforcement learning for classic control
+            tasks. <!-- EDIT: add a sentence on what you're looking for — internship, research collaborators, full-time role, etc. --></p>
+        </div>
+        <dl class="specs">
+          <dt>Location</dt>
+          <dd><!-- EDIT: e.g. San Diego, CA --></dd>
+          <dt>Focus</dt>
+          <dd>Robotics · Perception · Control</dd>
+          <dt>Program</dt>
+          <dd>M.S. ECE, UC San Diego</dd>
+          <dt>Status</dt>
+          <dd><!-- EDIT: e.g. Open to Summer 2027 internships --></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STACK ================= -->
+  <section id="stack">
+    <div class="wrap">
+      <div class="sheet-id">SHEET — 02 / TOOLING</div>
+      <h2>Stack</h2>
+
+      <div class="stack-group">
+        <h3>Languages</h3>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">C++</span>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <h3>Learning &amp; perception</h3>
+        <div class="chips">
+          <span class="chip">PyTorch</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">OpenCV</span>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <h3>Robotics &amp; simulation</h3>
+        <div class="chips">
+          <span class="chip">ROS</span>
+          <span class="chip">Gazebo</span>
+          <span class="chip">MuJoCo</span>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <h3>Infrastructure</h3>
+        <div class="chips">
+          <span class="chip">Docker</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">Linux</span>
+          <span class="chip">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sheet-id">SHEET — 03 / PROJECTS</div>
+      <h2>Featured projects</h2>
+
+      <article class="sheet">
+        <div class="sheet-head">
+          <h3><a href="projects/unitree-g1.html">Unitree G1 MuJoCo Playground</a></h3>
+          <span class="sheet-num">DWG-001</span>
+        </div>
+        <p>
+          PD-control of a Unitree G1 humanoid in MuJoCo through the SDK2
+          bridge, with a camera pipeline for localizing objects in the field
+          of view.
+        </p>
+        <div class="chips">
+          <span class="chip">MuJoCo</span><span class="chip">Python</span><span class="chip">Control</span>
+        </div>
+        <div class="sheet-links">
+          <a href="projects/unitree-g1.html">Case study →</a>
+          <a href="https://github.com/Akshit0601/Unitree-G1-Mujoco-Playground" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="sheet-head">
+          <h3><a href="projects/nav-sandbox.html">Testing Sandbox for Autonomous Navigation</a></h3>
+          <span class="sheet-num">DWG-002</span>
+        </div>
+        <p>
+          A lightweight, plug-and-play Gazebo sandbox for dataset-driven
+          testing of navigation pipelines, with GPU-accelerated
+          field-of-view culling.
+        </p>
+        <div class="chips">
+          <span class="chip">Gazebo</span><span class="chip">ROS</span><span class="chip">CUDA</span>
+        </div>
+        <div class="sheet-links">
+          <a href="projects/nav-sandbox.html">Case study →</a>
+          <a href="https://github.com/Akshit0601/Testing-Sandbox-For-Autonomous-Navigation" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="sheet-head">
+          <h3><a href="projects/cartpole-reinforce.html">Cartpole using REINFORCE</a></h3>
+          <span class="sheet-num">DWG-003</span>
+        </div>
+        <p>
+          A REINFORCE policy-gradient agent for CartPole, trained in
+          Gymnasium with MuJoCo and validated in both Gazebo Classic and
+          MuJoCo.
+        </p>
+        <div class="chips">
+          <span class="chip">PyTorch</span><span class="chip">Gymnasium</span><span class="chip">RL</span>
+        </div>
+        <div class="sheet-links">
+          <a href="projects/cartpole-reinforce.html">Case study →</a>
+          <a href="https://github.com/Akshit0601/Cartpole-using-REINFORCE" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="sheet-head">
+          <h3><a href="projects/marjanator.html">Marjanator</a></h3>
+          <span class="sheet-num">DWG-004</span>
+        </div>
+        <p>
+          A ROS-enabled autonomous surface vessel designed to automate the
+          cleaning of large lakes.
+        </p>
+        <div class="chips">
+          <span class="chip">ROS</span><span class="chip">USV</span><span class="chip">Embedded</span>
+        </div>
+        <div class="sheet-links">
+          <a href="projects/marjanator.html">Case study →</a>
+          <a href="https://github.com/Akshit0601/Marjanator_ROS" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+      <!-- EDIT: to add another project, duplicate one <article class="sheet"> block
+           above and create a matching file in /projects/ using unitree-g1.html as a template -->
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <!-- background watermark: rover -->
+    <div class="bg-graphic right" aria-hidden="true">
+      <svg viewBox="0 0 420 300" fill="none">
+        <rect x="110" y="150" width="200" height="70" rx="6" stroke="var(--ink-line)" stroke-width="2"/>
+        <line x1="150" y1="220" x2="150" y2="235" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="150" cy="235" r="26" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="270" y1="220" x2="270" y2="235" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="270" cy="235" r="26" stroke="var(--amber)" stroke-width="2"/>
+        <rect x="130" y="108" width="160" height="10" stroke="var(--ink-line)" stroke-width="1.6" transform="rotate(-6 210 113)"/>
+        <line x1="210" y1="150" x2="210" y2="80" stroke="var(--ink-line)" stroke-width="2"/>
+        <rect x="195" y="60" width="30" height="20" stroke="var(--ink-line)" stroke-width="1.8"/>
+        <circle cx="210" cy="70" r="4" fill="var(--amber)"/>
+        <line x1="260" y1="150" x2="300" y2="100" stroke="var(--ink-line)" stroke-width="2"/>
+        <circle cx="300" cy="100" r="3" fill="var(--amber)"/>
+      </svg>
+    </div>
+
+    <div class="wrap">
+      <div class="sheet-id">SHEET — 04 / CONTACT</div>
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div class="photo-frame round" data-placeholder="ADD PHOTO&#10;assets/profile-small.jpg">
+          <img src="assets/profile-small.jpg" alt="Akshit Shishodia"
+               onerror="this.parentElement.classList.add('is-empty')">
+        </div>
+        <div class="titleblock">
+          <div class="tb-cell">
+            <div class="tb-label">EMAIL</div>
+            <div class="tb-value"><a href="mailto:akshitshishodia@gmail.com">akshitshishodia@gmail.com</a></div>
+          </div>
+          <div class="tb-cell">
+            <div class="tb-label">GITHUB</div>
+            <div class="tb-value"><a href="https://github.com/Akshit0601" target="_blank" rel="noopener">github.com/Akshit0601</a></div>
+          </div>
+          <div class="tb-cell">
+            <div class="tb-label">LINKEDIN</div>
+            <div class="tb-value"><a href="https://www.linkedin.com/in/akshit-shishodia-631aab23a/" target="_blank" rel="noopener">in/akshit-shishodia</a></div>
+          </div>
+          <div class="tb-cell">
+            <div class="tb-label">NOTE</div>
+            <div class="tb-value">Always up for conversations on robotics and AI.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLOSING QUOTE ================= -->
+  <section id="closing" class="quote-section">
+    <svg class="sunburst" viewBox="0 0 900 560" fill="none" aria-hidden="true">
+      <line x1="450" y1="520" x2="218" y2="402" stroke="var(--amber)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="287" y2="404" stroke="var(--ink-line)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="284" y2="361" stroke="var(--amber)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="291" y2="315" stroke="var(--ink-line)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="352" y2="346" stroke="var(--amber)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="368" y2="305" stroke="var(--ink-line)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="393" y2="266" stroke="var(--amber)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="435" y2="321" stroke="var(--ink-line)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="467" y2="291" stroke="var(--amber)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="507" y2="266" stroke="var(--ink-line)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="522" y2="333" stroke="var(--amber)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="563" y2="320" stroke="var(--ink-line)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="609" y2="315" stroke="var(--amber)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="594" y2="382" stroke="var(--ink-line)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="637" y2="387" stroke="var(--amber)" stroke-width="2"/>
+      <line x1="450" y1="520" x2="682" y2="402" stroke="var(--ink-line)" stroke-width="2"/>
+    </svg>
+
+    <div class="wrap quote-inner">
+      <div class="sheet-id">SHEET — 05 / CLOSING</div>
+      <p class="quote-text">Reach for the sky.</p>
+      <p class="quote-sub"><!-- EDIT: optional one-line note under the quote, or delete this line --></p>
+
+      <div class="leap-wrap">
+        <div class="leap-marks" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="photo-frame leap" data-placeholder="ADD PHOTO&#10;assets/jump-photo.png&#10;(action / mid-air shot)">
+          <img src="assets/jump-photo.png" alt="Akshit Shishodia jumping"
+               onerror="this.parentElement.classList.add('is-empty')">
+        </div>
+        <div class="leap-shadow" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Sheet rendered for github.com/Akshit0601 — revision draft-03</p>
+</footer>
+
+</body>
+</html>
