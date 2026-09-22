@@ -47,7 +47,14 @@
 
     <div class="wrap">
       <div class="hero-grid">
-        <div>
+        <div class="hero-media crosshair">
+          <div class="photo-frame" data-placeholder="ADD PHOTO&#10;assets/profile.jpg">
+            <img src="assets/profile.jpg" alt="Akshit Shishodia"
+                 onerror="this.parentElement.classList.add('is-empty')">
+          </div>
+        </div>
+
+        <div class="hero-text">
           <div class="role">M.S. ELECTRICAL &amp; COMPUTER ENGINEERING — UC SAN DIEGO</div>
           <h1>Akshit Shishodia</h1>
           <p class="summary">
@@ -61,27 +68,6 @@
             <a class="btn primary" href="#projects">View projects</a>
             <a class="btn" href="https://github.com/Akshit0601" target="_blank" rel="noopener">GitHub ↗</a>
             <a class="btn" href="https://www.linkedin.com/in/akshit-shishodia-631aab23a/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          </div>
-        </div>
-
-        <!-- Photo + kinematic schematic, sharing one "reference sheet" panel -->
-        <div class="hero-media crosshair">
-          <div class="photo-frame" data-placeholder="ADD PHOTO&#10;assets/profile.jpg">
-            <img src="assets/profile.jpg" alt="Akshit Shishodia"
-                 onerror="this.parentElement.classList.add('is-empty')">
-          </div>
-          <div class="schematic-mini">
-            <svg viewBox="0 0 320 190" fill="none">
-              <rect x="120" y="150" width="80" height="10" stroke="var(--ink-line)" stroke-width="1.2"/>
-              <line x1="160" y1="150" x2="160" y2="118" stroke="var(--ink-line)" stroke-width="1.2"/>
-              <circle cx="160" cy="118" r="5" stroke="var(--amber)" stroke-width="1.4"/>
-              <line x1="160" y1="118" x2="100" y2="70" stroke="var(--ink-line)" stroke-width="1.4"/>
-              <circle cx="100" cy="70" r="5" stroke="var(--amber)" stroke-width="1.4"/>
-              <line x1="100" y1="70" x2="175" y2="30" stroke="var(--ink-line)" stroke-width="1.4"/>
-              <circle cx="175" cy="30" r="3.5" fill="var(--amber)"/>
-              <text x="180" y="18" font-family="IBM Plex Mono" font-size="9" fill="var(--amber)">τ = Kp·e + Kd·ė</text>
-            </svg>
-            <div class="frame-caption">FIG. 01 — 2-LINK MANIPULATOR, PD CONTROL</div>
           </div>
         </div>
       </div>
