@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marjanator — Akshit Shishodia</title>
+<title>Cosmo Logistics — Akshit Shishodia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,46 +27,57 @@
   <a class="back-link" href="../index.html#projects">&larr; All projects</a>
 
   <div class="case-head">
-    <h1>Marjanator</h1>
-    <span class="sheet-num">DWG-004</span>
+    <h1>Cosmo Logistics</h1>
+    <span class="sheet-num">DWG-006</span>
   </div>
   <p class="case-summary">
-    A ROS-enabled autonomous surface vessel (USV) designed to automate the cleaning of large lakes.
+    Warehouse automation using a UR5 arm and an ebot UGV, built for the E-Yantra Robotics Competition — finished 6th out of 200+ teams in India.
   </p>
   <div class="chips" style="margin-top:16px;">
-    <span class="chip">ROS</span>
-    <span class="chip">USV</span>
-    <span class="chip">Embedded systems</span>
+    <span class="chip">ROS2</span>
+    <span class="chip">MoveIt2</span>
+    <span class="chip">Nav2</span>
+    <span class="chip">SLAM</span>
   </div>
   <div class="case-links">
-    <a href="https://github.com/Akshit0601/Marjanator_ROS" target="_blank" rel="noopener">Repository &#8599;</a>
-    <!-- EDIT: add a demo video / paper / writeup link here if you have one -->
+    <a href="https://github.com/Akshit0601/Cosmo_Logistic_Bot" target="_blank" rel="noopener">Repository &#8599;</a>
   </div>
 
-  <div class="media-frame" data-placeholder="ADD GIF&#10;assets/marjanator.gif">
-    <img src="../assets/marjanator.gif" alt="Marjanator demo"
-         onerror="this.parentElement.classList.add('is-empty')">
+  <div class="media-frame" style="aspect-ratio:16/9;" data-placeholder="ADD YOUTUBE LINK #1">
+    <iframe width="100%" height="100%" style="border:0;"
+      src="https://www.youtube.com/embed/vJqlzh9IUIM  "
+      title="Cosmo Logistics demo video 1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
   </div>
 
   <div class="case-body">
-    <h3>Overview</h3>
+    <h3>Introduction</h3>
     <p>
-      <!-- EDIT: 2-4 sentences on the problem this project solves and why you built it -->
-      A ROS-enabled autonomous surface vessel (USV) designed to automate the cleaning of large lakes.
+      Cosmo Logistics was built as part of the E-Yantra Robotics Competition, whose theme centered on warehouse automation using a UGV and a UR5 robotic arm. The challenge required the system to autonomously navigate the warehouse floor, dock at shelves, and perform pick-and-place operations to move packages between locations, entirely on its own. We developed and validated these algorithms in both simulation and on a physical hardware setup, and the team finished 6th out of 200+ teams across India.
     </p>
 
-    <h3>Approach</h3>
+    <h3>Workflow</h3>
     <p>
-      <!-- EDIT: describe your method, architecture, or pipeline. Bullet points work well here too. -->
-      Add a short walkthrough of how the system works — the key modules,
-      the control or learning loop, and any design decisions worth calling out.
+      Manipulation was handled through the MoveIt2 Motion Planning Python API, using TF2 to manage the coordinate transforms needed for the UR5's forward and inverse kinematics during pick-and-place operations. On the mobility side, the ebot UGV fused wheel and sensor data using an Extended Kalman Filter (EKF) for robust state estimation, built a map of the warehouse using SLAM, and localized itself within that map using AMCL. Path and motion planning for the UGV ran on the Nav2 stack, integrated into the overall system through ROS2's Commander API to coordinate navigation, docking, and manipulation as a single pipeline.
     </p>
 
-    <h3>Results</h3>
-    <p>
-      <!-- EDIT: quantify what worked — success rate, latency, sample efficiency, sim-to-real notes, etc. -->
-      Add metrics, plots, or a short demo clip reference here.
-    </p>
+    <div class="media-frame" style="aspect-ratio:16/9;" data-placeholder="ADD YOUTUBE LINK #2">
+      <iframe width="100%" height="100%" style="border:0;"
+        src="https://youtube.com/embed/qbBKBZnamgY"
+        title="Cosmo Logistics demo video 2"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+  </div>
+
+  <div class="media-frame" style="aspect-ratio:16/9;" data-placeholder="ADD YOUTUBE LINK #3">
+    <iframe width="100%" height="100%" style="border:0;"
+      src="https://youtube.com/embed/nfSPuMpeKLU"
+      title="Cosmo Logistics demo video 3"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
   </div>
 
   <div class="case-nav">
@@ -76,7 +87,7 @@
 </main>
 
 <footer>
-  <p>Sheet rendered for github.com/Akshit0601 — revision draft-02</p>
+  <p>Sheet rendered for github.com/Akshit0601 — revision draft-01</p>
 </footer>
 
 </body>

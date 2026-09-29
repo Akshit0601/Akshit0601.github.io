@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cartpole using REINFORCE — Akshit Shishodia</title>
+<title>Model-Free Solutions using RL — Akshit Shishodia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,52 +27,52 @@
   <a class="back-link" href="../index.html#projects">&larr; All projects</a>
 
   <div class="case-head">
-    <h1>Cartpole using REINFORCE</h1>
-    <span class="sheet-num">DWG-003</span>
+    <h1>Model-Free Solutions using RL</h1>
+    <span class="sheet-num">DWG-005</span>
   </div>
   <p class="case-summary">
-    A REINFORCE policy-gradient agent for CartPole, trained in Gymnasium with MuJoCo and validated in both Gazebo Classic and MuJoCo.
+    Bachelor thesis work on model-free reinforcement learning solutions for classical control problems, including LQR, with application to civil engineering.
   </p>
   <div class="chips" style="margin-top:16px;">
-    <span class="chip">PyTorch</span>
-    <span class="chip">Gymnasium</span>
-    <span class="chip">MuJoCo</span>
-    <span class="chip">Reinforcement learning</span>
+    <span class="chip">Reinforcement Learning</span>
+    <span class="chip">LQR</span>
+    <span class="chip">Python</span>
   </div>
   <div class="case-links">
-    <a href="https://github.com/Akshit0601/Cartpole-using-REINFORCE" target="_blank" rel="noopener">Repository &#8599;</a>
-    <!-- EDIT: add a demo video / paper / writeup link here if you have one -->
+    <a href="https://github.com/Akshit0601/Model-free-solutions-using-Deep-Reinforcement-Learning-and-Function-Approximations" target="_blank" rel="noopener">Repository &#8599;</a>
+    <a href="https://drive.google.com/file/d/1lbZCTlZUv04JyGzDJ2TbeWOzlY-2_dzI/view?usp=sharing" target="_blank" rel="noopener">Thesis Report &#8599;</a>
   </div>
 
-  <div class="media-frame" data-placeholder="ADD GIF&#10;assets/cartpole-reinforce.gif">
-    <img src="../assets/cartpole-reinforce.gif" alt="Cartpole using REINFORCE demo"
+  <div class="media-frame" data-placeholder="ADD GIF&#10;assets/cartpole.gif">
+    <img src="../assets/cartpole.gif" alt="Cartpole balancing using REINFORCE"
          onerror="this.parentElement.classList.add('is-empty')">
   </div>
 
   <div class="case-body">
-    <h3>Overview</h3>
+    <h3>Introduction</h3>
     <p>
-      <!-- EDIT: 2-4 sentences on the problem this project solves and why you built it -->
-      A REINFORCE policy-gradient agent for CartPole, trained in Gymnasium with MuJoCo and validated in both Gazebo Classic and MuJoCo.
+      As part of my thesis, I did extensive research into reinforcement learning techniques for tackling classical control problems such as cartpole balancing and LQR-style systems, developing model-free solutions to stabilize unstable systems without any knowledge of their underlying dynamics. For a general discrete-time system of the form x(k+1) = Ax(k) + Bu(k), y(k) = Cu(k), the goal is to define and learn control policies without ever knowing A, B, or C, using RL techniques ranging from traditional value iteration and policy iteration to actor-critic methods like REINFORCE, alongside additional formulations proposed from literature review that extend or modify existing algorithms.
     </p>
 
-    <h3>Approach</h3>
+    <h3>Literature Review</h3>
     <p>
-      <!-- EDIT: describe your method, architecture, or pipeline. Bullet points work well here too. -->
-      Add a short walkthrough of how the system works — the key modules,
-      the control or learning loop, and any design decisions worth calling out.
+      Reviewed Model Learning Actor-Critic (MLAC), which integrates local linear models of system dynamics into the actor-critic framework to improve sample efficiency over purely model-free methods, while noting its sensitivity to model bias and hyperparameter tuning.
     </p>
 
-    <h3>Results</h3>
+    <h3>Cartpole Problem</h3>
     <p>
-      <!-- EDIT: quantify what worked — success rate, latency, sample efficiency, sim-to-real notes, etc. -->
-      Add metrics, plots, or a short demo clip reference here.
+      Developed an optimal control policy for the cartpole balancing problem using the REINFORCE algorithm with a neural-network policy and value function, learning to apply corrective forces to keep the pole upright without access to the system's dynamics matrices. The learned policy was benchmarked against the ideal LQR solution obtained via the Algebraic Riccati Equation, converging to closely matching output, control-action, and cost behavior after sufficient training episodes. Full implementation and demo available on <a href="https://github.com/Akshit0601/Model-free-solutions-using-Deep-Reinforcement-Learning-and-Function-Approximations" target="_blank" rel="noopener">GitHub</a>, with training code in this <a href="https://colab.research.google.com/drive/1g-3ued2uKsl2ZcLW2sHtmvHv30SsW_46?usp=sharing" target="_blank" rel="noopener">Colab notebook</a>.
+    </p>
+
+    <h3>Jack-up System using RL</h3>
+    <p>
+      Extended the same model-free framework to jack-up systems used for settlement control in offshore structures and temporary foundations, drawing a direct analogy to the cartpole problem: uniform settlement maps to a balanced cartpole, tilting settlement to a tilted cartpole, and differential settlement to a displaced, tilted cartpole. The state space captures platform tilt angle and differential settlement (and their rates), while the action space consists of incremental jack-height adjustments, with a reward function penalizing excessive tilt, uneven settlement, and control effort. To account for real-world variability, soil cohesion and moisture content are proposed as additional state variables or cost-function terms, letting the learned policy adapt to changing soil conditions without relying on an explicit system model. Exploratory implementation available in this <a href="https://colab.research.google.com/drive/10P91qyRQGzt64MU78bInv0FAgFn6vzVn?usp=sharing" target="_blank" rel="noopener">Colab notebook</a>.
     </p>
   </div>
 
   <div class="case-nav">
-    <span><a href="nav-sandbox.html">&larr; Testing Sandbox for Autonomous Navigation</a></span>
-    <span><a href="marjanator.html">Marjanator &rarr;</a></span>
+    <span><a href="unitree-g1.html">&larr; Unitree G1 MuJoCo Playground</a></span>
+    <span><a href="cartpole-reinforce.html">Cartpole using REINFORCE &rarr;</a></span>
   </div>
 </main>
 
