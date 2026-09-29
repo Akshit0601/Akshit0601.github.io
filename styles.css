@@ -9,7 +9,7 @@
 }
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; scroll-padding-top:70px; }
-body{ zoom:.6; /* page scaled down 20% */ margin:0; background:var(--navy-deep); color:var(--ink-bright); font-family:var(--sans); line-height:1.55; position:relative; overflow-x:hidden; }
+body{ zoom:.8; /* page scaled down 20% */ margin:0; background:var(--navy-deep); color:var(--ink-bright); font-family:var(--sans); line-height:1.55; position:relative; overflow-x:hidden; }
 body::before{
   content:""; position:fixed; inset:0; z-index:-1; background-color:var(--navy-deep);
   background:
